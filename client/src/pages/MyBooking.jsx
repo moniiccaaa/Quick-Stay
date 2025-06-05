@@ -4,7 +4,7 @@ import { assets, userBookingsDummyData } from '../assets/assets'
 
 const MyBookings = () => {
 
-    const [bookings, setBookings] = useState(userBookingsDummyData);
+    const [bookings, setBookings] = useState(userBookingsDummyData); //state variable
 
   return (
     <div className='py-28 md:pb-35 md:pt-32 px-4 md:px-16 lg:px-24 xl:px-32'>
@@ -25,39 +25,49 @@ const MyBookings = () => {
             w-full border-b border-gray-300 py-6 first:border-t'>
                 {/* Hotel details */}
                 <div className='flex flex-col md:flex-row'>
+
                     <img src={booking.room.images[0]} alt="hotel-image"
                     className='min-md:w-44 rounded shadow object-cover' />
+
                     <div className='flex flex-col gap-1.5 max-md:mt-3 min-md:ml-4'>
+
                         <p className='font-playfair text-2xl'>{booking.hotel.name}
                             <span className='font-inter text-sm'> ({booking.room.roomType})</span>
                         </p>
+
                         <div className='flex items-center gap-1 text-sm text-gray-500'>
                             <img src={assets.locationIcon} alt="location-icon" />
                             <span>{booking.hotel.address}</span>
                         </div>
+
                         <div className='flex items-center gap-1 text-sm text-gray-500'>
                             <img src={assets.guestsIcon} alt="guests-icon" />
                             <span>{booking.guests}</span>
                         </div>
-                        <p className=''>Total: ${booking.totalPrice}</p>
+
+                        <p className=''>Total: Rs.{booking.totalPrice}</p>
+
                     </div>
                     
                 </div>
 
                 {/* Date and timing details */}
-                <div className='flex flex-row md:items-center md:gap-12 mt-3 gap-8'>                   
+                <div className='flex flex-row md:items-center md:gap-12 mt-3 gap-8'> 
+
                     <div>
                         <p>Check-In</p>
                         <p className='text-gray-500 text-sm'>
                             {new Date(booking.checkInDate).toDateString()}
                         </p>
                     </div>
+
                     <div>
                         <p>Check-Out</p>
                         <p className='text-gray-500 text-sm'>
                             {new Date(booking.checkOutDate).toDateString()}
                         </p>
                     </div>
+                    
                 </div>                
 
                 {/* ---- Payment Status ---- */}
